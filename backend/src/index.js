@@ -5,7 +5,7 @@ const dbConnect = require("./config/db");
 const path = require("path");
 const route = require("./routes");
 const app = express();
-const port = 3000;
+const port = 3001;
 
 route(app);
 dbConnect();
