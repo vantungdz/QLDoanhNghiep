@@ -19,9 +19,33 @@ const userSchema = new mongoose.Schema({
   sex: {
     type: String,
   },
+  domicile: {
+    type: String,
+  },
+  nationality: {
+    type: String,
+  },
+  nation: {
+    type: String,
+  },
+  religion: {
+    type: String,
+  },
+  marital: {
+    type: String,
+  },
+  MST: {
+    type: String,
+  },
+  CCCD: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
   image: {
     type: String,
   },
 });
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("user", userSchema);
