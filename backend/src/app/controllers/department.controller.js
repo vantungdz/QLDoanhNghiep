@@ -1,7 +1,6 @@
-const departmentModel = require("../Model/department.model");
-
+const departmentModel = require("../model/department.model");
 const fetchList = async (req, res) => {
-  const department = await departmentModel.find();
+  const department = await departmentModel.find({});
   res.json({
     data: department,
   });

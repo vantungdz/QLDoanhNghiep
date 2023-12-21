@@ -3,6 +3,6 @@ const userRouter = express.Router();
 
 const userController = require("../app/controllers/user.controller");
 
-userRouter.use("/", userController.fetchList);
+userRouter.route("/").get(userController.fetchList).post(userController.create);
 
 module.exports = userRouter;
