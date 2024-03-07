@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  id: {
+  employee_id: {
     type: String,
   },
   position: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
   },
-  username: {
+  name: {
     type: String,
   },
   email: {

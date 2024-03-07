@@ -9,19 +9,19 @@ const fetchList = async (req, res) => {
 
 const create = async (req, res) => {
   const users = await userModel.create({
-    employee_id: "MS005",
-    email: "dovantung@gmail.com",
-    name: "Name so 5",
-    age: 24,
-    sex: "1",
-    domicile: "Hai Duong",
-    nationality: "Viet Nam",
-    nation: "Kinh",
-    religion: "Khong",
-    marital: "1",
-    MST: "123123",
-    CCCD: "066098018468",
-    phone: "0379399512",
+    employee_id: req.body.employee_id,
+    email: req.body.email,
+    name: req.body.name,
+    age: req.body.age,
+    sex: req.body.sex,
+    domicile: req.body.domicile,
+    nationality: req.body.nationality,
+    nation: req.body.nation,
+    religion: req.body.religion,
+    marital: req.body.marital,
+    MST: req.body.MST,
+    CCCD: req.body.CCCD,
+    phone: req.body.phone,
     image: "https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg",
   });
   res.json({
