@@ -7,8 +7,8 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Button, Row, Col, Avatar } from "antd";
-import "./DashBoard.css";
-
+import "./dashBoard.css";
+import EmployeeManagement from "../components/containers/employee";
 const { Header, Sider, Content } = Layout;
 
 function DashboardPage() {
@@ -25,7 +25,7 @@ function DashboardPage() {
             {
               key: "1",
               icon: <UserOutlined />,
-              label: "nav 1",
+              label: "Nhân Viên",
             },
             {
               key: "2",
@@ -48,7 +48,7 @@ function DashboardPage() {
           }}
         >
           <Row>
-            <Col md={18}>
+            <Col md={22}>
               <Button
                 type="text"
                 icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -60,7 +60,7 @@ function DashboardPage() {
                 }}
               />
             </Col>
-            <Col md={6}>
+            <Col md={2}>
               <div>
                 <Avatar size="default" icon={<UserOutlined />}></Avatar> Van
                 Tung
@@ -76,7 +76,7 @@ function DashboardPage() {
             minHeight: 280,
           }}
         >
-          Content
+          <EmployeeManagement />
         </Content>
       </Layout>
     </Layout>

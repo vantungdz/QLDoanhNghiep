@@ -1,17 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import createSagaMiddleware from "redux-saga";
+import { render } from "react-dom";
+import { legacy_createStore as createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import { logger } from "redux-logger";
+import reducer from "./components/ducks/employee/reducers";
+import App from "./components/dashBoard";
+import rootSaga from "./components/sagas/rootSaga";
+const sagaMiddleware = createSagaMiddleware();
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
+const store = createStore(reducer, applyMiddleware(sagaMiddleware, logger));
+sagaMiddleware.run(rootSaga);
+render(
+  <Provider store={store}>
     <App />
-  </React.StrictMode>
+  </Provider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
