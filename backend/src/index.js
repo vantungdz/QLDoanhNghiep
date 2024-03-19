@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { engine } = require("express-handlebars");
 const dbConnect = require("./config/db");
@@ -6,6 +7,7 @@ const path = require("path");
 const route = require("./routes");
 const app = express();
 const port = 3001;
+app.use(cors());
 
 route(app);
 dbConnect();

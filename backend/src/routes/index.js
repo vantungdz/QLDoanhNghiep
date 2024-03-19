@@ -4,6 +4,6 @@ const userRouter = require("./user.route");
 function route(app) {
   app.use("/department", departmentRouter);
 
-  app.use("/user", userRouter);
+  app.use("/employees", userRouter);
 }
 module.exports = route;

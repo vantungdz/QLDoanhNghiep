@@ -7,6 +7,20 @@ const fetchList = async (req, res) => {
   });
 };
 
+const deleted = async (req, res) => {
+  try {
+    const deleted = await userModel.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      res.status(404).json({ message: "Item not found" });
+    } else {
+      res.json({ message: "Item deleted" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const create = async (req, res) => {
   const users = await userModel.create({
     employee_id: req.body.employee_id,
@@ -22,6 +36,7 @@ const create = async (req, res) => {
     MST: req.body.MST,
     CCCD: req.body.CCCD,
     phone: req.body.phone,
+    status: req.body.status,
     image: "https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg",
   });
   res.json({
@@ -32,4 +47,5 @@ const create = async (req, res) => {
 module.exports = {
   fetchList,
   create,
+  deleted,
 };
