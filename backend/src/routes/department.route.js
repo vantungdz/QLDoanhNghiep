@@ -8,4 +8,6 @@ departmentRouter
   .get(departmentController.fetchList)
   .post(departmentController.create);
 
+departmentRouter.delete("/:id", departmentController.deleted);
+
 module.exports = departmentRouter;
