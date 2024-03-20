@@ -1,35 +1,35 @@
-// employeeReducer.js
+// departmentReducer.js
 
 import {
-  FETCH_EMPLOYEES_REQUEST,
-  FETCH_EMPLOYEES_SUCCESS,
-  FETCH_EMPLOYEES_FAILURE,
-  UPDATE_EMPLOYEE_SUCCESS,
+  FETCH_DEPARTMENTS_REQUEST,
+  FETCH_DEPARTMENTS_SUCCESS,
+  FETCH_DEPARTMENTS_FAILURE,
+  UPDATE_DEPARTMENT_SUCCESS,
   // DELETE_ITEM_REQUEST,
   // DELETE_ITEM_SUCCESS,
   // DELETE_ITEM_FAILURE,
 } from "./types";
 
 const initialState = {
-  employees: [],
+  departments: [],
   loading: false,
   error: null,
 };
 
-const employeeReducer = (state = initialState, action) => {
+const departmentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_EMPLOYEES_REQUEST:
+    case FETCH_DEPARTMENTS_REQUEST:
       return { ...state, loading: true };
-    case FETCH_EMPLOYEES_SUCCESS:
+    case FETCH_DEPARTMENTS_SUCCESS:
       const newState = action.payload.data || [];
-      return { ...state, loading: false, employees: newState };
-    case FETCH_EMPLOYEES_FAILURE:
+      return { ...state, loading: false, departments: newState };
+    case FETCH_DEPARTMENTS_FAILURE:
       return { ...state, loading: false, error: action.payload };
-    case UPDATE_EMPLOYEE_SUCCESS:
+    case UPDATE_DEPARTMENT_SUCCESS:
       return {
         ...state,
-        employees: state.employees.map((employee) =>
-          employee.id === action.payload.id ? action.payload : employee
+        departments: state.departments.map((department) =>
+          department.id === action.payload.id ? action.payload : department
         ),
       };
     default:
@@ -37,7 +37,7 @@ const employeeReducer = (state = initialState, action) => {
   }
 };
 
-// const deleteEmployee = (state = initialState, action) => {
+// const deleteDepartment = (state = initialState, action) => {
 //   switch (action.type) {
 //     case DELETE_ITEM_REQUEST:
 //       return {
@@ -64,4 +64,4 @@ const employeeReducer = (state = initialState, action) => {
 //   }
 // };
 
-export default employeeReducer;
+export default departmentReducer;
