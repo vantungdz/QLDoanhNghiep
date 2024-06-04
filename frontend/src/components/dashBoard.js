@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -12,6 +12,9 @@ import EmployeeManagement from "../components/containers/employee";
 const { Header, Sider, Content } = Layout;
 
 function DashboardPage() {
+  useEffect(() => {
+    document.title = "EMI LOW";
+  }, []);
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout>

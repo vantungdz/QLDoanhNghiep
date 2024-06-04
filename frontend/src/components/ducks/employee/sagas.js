@@ -37,7 +37,6 @@ function* updateEmployeeSaga(action) {
 
 function* deleteItemSaga(action) {
   try {
-    console.log(action.payload);
     const { itemId } = action.payload;
     yield call(deleteItem, itemId); // Call API to delete item
     yield put({ type: DELETE_ITEM_SUCCESS });
