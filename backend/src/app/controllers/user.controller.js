@@ -7,6 +7,20 @@ const fetchList = async (req, res) => {
   });
 };
 
+const update = async (req, res) => {
+  try {
+    const update = await userModel.findByIdAndUpdate(req.params.id, req);
+    if (!update) {
+      res.status(404).json({ message: "Item not found" });
+    } else {
+      res.json({ message: "Item update" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const deleted = async (req, res) => {
   try {
     const deleted = await userModel.findByIdAndDelete(req.params.id);
